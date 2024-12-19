@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -17,6 +17,18 @@ import { useAuth } from './shared/hooks/auth-hook';
 
 const App = () => {
   const { token, login, logout, userId } = useAuth();
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [userId, setUserId] = useState(false);
+
+  // const login = useCallback(uid => {
+  //   setIsLoggedIn(true);
+  //   setUserId(uid);
+  // }, []);
+
+  // const logout = useCallback(() => {
+  //   setIsLoggedIn(false);
+  //   setUserId(null);
+  // }, []);
 
   let routes;
 
