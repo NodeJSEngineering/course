@@ -2,8 +2,8 @@ import React, { useState, useCallback } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Redirect,
-  Switch
+  Navigate,
+  Routes
 } from 'react-router-dom';
 
 import Users from './user/pages/Users';
@@ -34,36 +34,29 @@ const App = () => {
   // if (isLoggedIn) {
   if (token) {
     routes = (
-      <Switch>
-        <Route path="/" exact>
-          <Users />
+      <Routes>
+        <Route path="/" exact="true" element={<Users />}>
         </Route>
-        <Route path="/:userId/places" exact>
-          <UserPlaces />
+        <Route path="/:userId/places" exact="true" element={<UserPlaces />}>
         </Route>
-        <Route path="/places/new" exact>
-          <NewPlace />
+        <Route path="/places/new" exact="true" element={<NewPlace />}>
         </Route>
-        <Route path="/places/:placeId">
-          <UpdatePlace />
+        <Route path="/places/:placeId" element={<UpdatePlace />}>
         </Route>
-        <Redirect to="/" />
-      </Switch>
+        <Route element={<Navigate to="/" />}></Route>
+      </Routes>
     );
   } else {
     routes = (
-      <Switch>
-        <Route path="/" exact>
-          <Users />
+      <Routes>
+        <Route path="/" exact="true" element={<Users />}>
         </Route>
-        <Route path="/:userId/places" exact>
-          <UserPlaces />
+        <Route path="/:userId/places" exact="true" element={<UserPlaces />}>
         </Route>
-        <Route path="/auth">
-          <Auth />
+        <Route path="/auth" element={<Auth />}>
         </Route>
-        <Redirect to="/auth" />
-      </Switch>
+        <Route element={<Navigate to="/auth" />}></Route>
+      </Routes>
     );
   }
 
