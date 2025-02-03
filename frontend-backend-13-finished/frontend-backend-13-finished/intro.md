@@ -1,5 +1,7 @@
 localhost:5000/api/usersx
 
+common Reactjs errors
+
 To update react or angular project version update (all packages)
 npm install -g npm-check-updates
 ncu -u
@@ -63,3 +65,17 @@ Error: Invalid <Link> with <a> child. Please remove <a> or use <Link legacyBehav
 
 error:0308010C:digital envelope routines::unsupported at new Hash (node:internal/crypto
             run the npm audit fix --force command
+
+Module not found: Error: Can't resolve 'url' in 'D:\new\chrome-react-seo-extension\node_modules\react-dev-utils'BREAKING CHANGE: webpack < 5 used to include polyfills for node.js core modules by default.
+This is no longer the case. Verify if you need this module and configure a polyfill for it.
+
+If you want to include a polyfill, you need to:
+- add a fallback 'resolve.fallback: { "url": require.resolve("url/") }'
+- install 'url'
+If you don't want to include a polyfill, you can use an empty module like this:
+resolve.fallback: { "url": false }
+
+npm install react-scripts@4.0.3
+
+
+ReactDOM.render is no longer supported in React 18. Use createRoot instead.
